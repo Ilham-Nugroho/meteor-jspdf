@@ -7,7 +7,6 @@
 autopublish@1.0.7
 insecure@1.0.7
 mrt:bootstrap-3
-jspdf:core
 meteor-base
 mobile-experience
 mongo
@@ -26,3 +25,4 @@ standard-minifier-js
 shell-server
 dynamic-import
 underscore
+jspdf:core
