@@ -7,14 +7,14 @@ if (Meteor.isClient) {
       var HTML2PDF = function demoFromHTML() {
         var endpoint_datas = [
           {
-            id: "1",
+            No: "1",
             End_Point: "/get/Nik",
             Success_Request: "5",
             Error_Request: "5",
             Total_Request: "10",
           },
           {
-            id: "2",
+            No: "2",
             End_Point: "/get/Phone",
             Success_Request: "2",
             Error_Request: "20",
@@ -24,7 +24,7 @@ if (Meteor.isClient) {
 
         var consumer_datas = [
           {
-            id: "1",
+            No: "1",
             App_Name: "App-Profiler",
             End_Point: "/get/Nik",
             Success_Request: "10",
@@ -32,7 +32,7 @@ if (Meteor.isClient) {
             Total_Request: "11",
           },
           {
-            id: "",
+            No: "",
             App_Name: "",
             End_Point: "/get/Phone",
             Success_Request: "1",
@@ -40,7 +40,7 @@ if (Meteor.isClient) {
             Total_Request: "2",
           },
           {
-            id: "2",
+            No: "2",
             App_Name: "App-Dua",
             End_Point: "/get/Nik",
             Success_Request: "10",
@@ -48,7 +48,7 @@ if (Meteor.isClient) {
             Total_Request: "20",
           },
           {
-            id: "",
+            No: "",
             App_Name: "",
             End_Point: "/get/Phone",
             Success_Request: "11",
@@ -57,36 +57,130 @@ if (Meteor.isClient) {
           },
         ];
 
-        function createHeaders(keys) {
-          var result = [];
-          for (var i = 0; i < keys.length; i += 1) {
-            result.push({
-              id: keys[i],
-              name: keys[i],
-              prompt: keys[i],
-              width: 50,
-              align: "center",
-            });
-          }
-          return result;
-        }
+        // function createHeaders(keys) {
+        //   var result = [];
+        //   for (var i = 0; i < keys.length; i += 1) {
+        //     result.push({
+        //       id: keys[i],
+        //       name: keys[i],
+        //       prompt: keys[i],
+        //       width: 50,
+        //       align: "center",
+        //     });
+        //   }
+        //   return result;
+        // }
 
-        var endpoint_headers = createHeaders([
-          "id",
-          "End_Point",
-          "Success_Request",
-          "Error_Request",
-          "Total_Request",
-        ]);
+        var endpoint_headers = [
+          {
+            align: "right",
+            id: "No",
+            name: "No",
+            prompt: "No",
+            width: 15,
+            margin: 0,
+            padding: 0,
+          },
+          {
+            align: "right",
+            id: "End_Point",
+            name: "End_Point",
+            prompt: "End_Point",
+            width: 50,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Success_Request",
+            name: "Success_Request",
+            prompt: "Success_Request",
+            width: 50,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Error_Request",
+            name: "Error_Request",
+            prompt: "Error_Request",
+            width: 50,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Total_Request",
+            name: "Total_Request",
+            prompt: "Total_Request",
+            width: 50,
+            margin: 0,
+            padding: 0,
+          },
+        ];
 
-        var consumer_headers = createHeaders([
-          "id",
-          "App_Name",
-          "End_Point",
-          "Success_Request",
-          "Error_Request",
-          "Total_Request",
-        ]);
+        // { align: "right", id: "id", name: "id", prompt: "id", width: 5 },
+        //   "End_Point",
+        //   "Success_Request",
+        //   "Error_Request",
+        //   "Total_Request",
+
+        var consumer_headers = [
+          {
+            align: "right",
+            id: "No",
+            name: "No",
+            prompt: "No",
+            width: 15,
+            margin: 0,
+            padding: 0,
+          },
+          {
+            align: "right",
+            id: "App_Name",
+            name: "App_Name",
+            prompt: "App_Name",
+            width: 40,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "End_Point",
+            name: "End_Point",
+            prompt: "End_Point",
+            width: 40,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Success_Request",
+            name: "Success_Request",
+            prompt: "Success_Request",
+            width: 50,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Error_Request",
+            name: "Error_Request",
+            prompt: "Error_Request",
+            width: 40,
+            padding: 0,
+            margin: 0,
+          },
+          {
+            align: "right",
+            id: "Total_Request",
+            name: "Total_Request",
+            prompt: "Total_Request",
+            width: 40,
+            margin: 0,
+            padding: 0,
+          },
+        ];
 
         // var columns = ["ID", "Name", "Country"];
         // var rows = [
@@ -145,14 +239,9 @@ if (Meteor.isClient) {
         doc.setFontSize(10);
         doc.text(35, 135, "   " + "   " + "End Point Request");
 
-        doc.table(
-          10,
-          140,
-          endpoint_datas,
-          endpoint_headers,
-          { fontSize: 10 },
-          { padding: 0 }
-        );
+        // doc.setTableHeaderRow([{ height: 10 }]);
+
+        doc.table(10, 140, endpoint_datas, endpoint_headers, { fontSize: 10 });
 
         doc.setFontSize(10);
         doc.text(35, 195, "   " + "   " + "Consumer Request");
