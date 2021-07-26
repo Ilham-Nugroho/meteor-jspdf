@@ -85,7 +85,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "End_Point",
             name: "End_Point",
-            prompt: "End_Point",
+            prompt: "End Point",
             width: 50,
             padding: 0,
             margin: 0,
@@ -94,7 +94,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "Success_Request",
             name: "Success_Request",
-            prompt: "Success_Request",
+            prompt: "Success Request",
             width: 50,
             padding: 0,
             margin: 0,
@@ -103,7 +103,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "Error_Request",
             name: "Error_Request",
-            prompt: "Error_Request",
+            prompt: "Error Request",
             width: 50,
             padding: 0,
             margin: 0,
@@ -112,7 +112,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "Total_Request",
             name: "Total_Request",
-            prompt: "Total_Request",
+            prompt: "Total Request",
             width: 50,
             margin: 0,
             padding: 0,
@@ -139,7 +139,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "App_Name",
             name: "App_Name",
-            prompt: "App_Name",
+            prompt: "App Name",
             width: 40,
             padding: 0,
             margin: 0,
@@ -148,7 +148,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "End_Point",
             name: "End_Point",
-            prompt: "End_Point",
+            prompt: "End Point",
             width: 40,
             padding: 0,
             margin: 0,
@@ -157,7 +157,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "Success_Request",
             name: "Success_Request",
-            prompt: "Success_Request",
+            prompt: "Success Request",
             width: 50,
             padding: 0,
             margin: 0,
@@ -166,7 +166,7 @@ if (Meteor.isClient) {
             align: "right",
             id: "Error_Request",
             name: "Error_Request",
-            prompt: "Error_Request",
+            prompt: "Error Request",
             width: 40,
             padding: 0,
             margin: 0,
@@ -175,19 +175,12 @@ if (Meteor.isClient) {
             align: "right",
             id: "Total_Request",
             name: "Total_Request",
-            prompt: "Total_Request",
+            prompt: "Total Request",
             width: 40,
             margin: 0,
             padding: 0,
           },
         ];
-
-        // var columns = ["ID", "Name", "Country"];
-        // var rows = [
-        //   [1, "Shaw", "Tanzania"],
-        //   [2, "Nelson", "Kazakhstan"],
-        //   [3, "Garcia", "Madagascar"],
-        // ];
 
         var doc = new jsPDF({
             putOnlyUsedFonts: true,
@@ -201,53 +194,53 @@ if (Meteor.isClient) {
 
         // doc.autoTable(columns, rows);
 
+        // doc.setHeaderRowTable([{}]);
+
         doc.setFontSize(16);
-        doc.text(57, 30, "Laporan API Management Gateway");
+        doc.text(57, 20, "Laporan API Management Gateway");
 
         doc.setFontSize(10);
         doc.text(
           30,
-          45,
+          35,
           "Tanggal" + "              " + ": Kamis, 15 Juni 2021"
         );
         doc.setFontSize(10);
-        doc.text(30, 51, "Data Laporan     : 14 Juni 2021 - 15 Juni 2021");
+        doc.text(30, 41, "Data Laporan     : 14 Juni 2021 - 15 Juni 2021");
 
         doc.setFontSize(11);
-        doc.text(30, 61, "Status API Gateway");
+        doc.text(30, 51, "Status API Gateway");
 
         doc.setFontSize(10);
-        doc.text(30, 71, "Services" + "              " + ": 6");
+        doc.text(30, 61, "Services" + "              " + ": 6");
         doc.setFontSize(10);
-        doc.text(30, 77, "Routes" + "                " + ": 4");
+        doc.text(30, 67, "Routes" + "                " + ": 4");
         doc.setFontSize(10);
-        doc.text(30, 83, "Consumer" + "           " + ": 7");
+        doc.text(30, 73, "Consumer" + "           " + ": 7");
 
         doc.setFontSize(10);
-        doc.text(30, 93, "Total Request" + " " + " " + " " + "    " + ": 1000");
+        doc.text(30, 83, "Total Request" + " " + " " + " " + "    " + ": 1000");
         doc.setFontSize(10);
-        doc.text(30, 99, "Error Request" + " " + " " + " " + "    " + ": 300");
+        doc.text(30, 89, "Error Request" + " " + " " + " " + "    " + ": 300");
         doc.setFontSize(10);
-        doc.text(30, 105, "Success Request" + " " + " " + ": 700");
+        doc.text(30, 95, "Success Request" + " " + " " + ": 700");
 
         doc.setFontSize(10);
-        doc.text(30, 115, "Detail Service");
+        doc.text(30, 105, "Detail Service");
 
         doc.setFontSize(10);
-        doc.text(35, 125, "1." + "   " + "Service Telkom");
+        doc.text(35, 115, "1." + "   " + "Service Telkom");
 
         doc.setFontSize(10);
-        doc.text(35, 135, "   " + "   " + "End Point Request");
+        doc.text(35, 125, "   " + "   " + "End Point Request");
 
-        // doc.setTableHeaderRow([{ height: 10 }]);
-
-        doc.table(10, 140, endpoint_datas, endpoint_headers, { fontSize: 10 });
+        doc.table(23, 130, endpoint_datas, endpoint_headers, { fontSize: 10 });
 
         doc.setFontSize(10);
         doc.text(35, 195, "   " + "   " + "Consumer Request");
 
         doc.table(
-          10,
+          20,
           200,
           consumer_datas,
           consumer_headers,
